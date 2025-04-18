@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   reactStrictMode: false,
-  //basePath: "/react-idle",
+  basePath: "/react-idle",
 };
 
 export default nextConfig;
