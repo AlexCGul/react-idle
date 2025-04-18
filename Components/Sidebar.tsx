@@ -34,6 +34,7 @@ function Sidebar() {
 function BuyItem(itemBought) 
 {
   items.BuyItemFromStore(itemBought);
+  items.items.items[itemBought].purchase();
 }
 
  export default Sidebar;

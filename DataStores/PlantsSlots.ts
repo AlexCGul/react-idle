@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import items from "./items";
 
@@ -7,14 +9,22 @@ type slot = {
     growthProgress: number,
 }
 
-const slotCost = items.items["plot"].cost; // plot cost
-const [slots, setSlots] = useState<slot[]>([]);
+//const slotCost = items.items["plot"].cost; // plot cost
+let slots:slot[] = [];
 
+const slotBought = new Event("slotBought")
 
 function BuySlot () 
 {
-    const newSlots = [...slots, { hasPlant: false, hasWorker: false, growthProgress: 0 }];
-    setSlots(newSlots);
+    slots = [...slots, { hasPlant: false, hasWorker: false, growthProgress: 0 }];
+    console.log("Buying slot " + slots.length);
+    document.dispatchEvent(slotBought);
+}
+
+
+function GetSlots ()
+{
+    return slots;
 }
 
 
@@ -29,7 +39,7 @@ function PlantSeedInNextAvailableSlot ()
             break;
         }
     }
-    setSlots(newSlots);
+    slots = newSlots;
 }
 
 
@@ -44,7 +54,7 @@ function PlantWorkerInNextAvailableSlot ()
             break;
         }
     }
-    setSlots(newSlots);
+    slots = newSlots;
 }
 
 
@@ -55,7 +65,7 @@ function GrowPlantAtIndex (index: number)
     {
         newSlots[index].growthProgress += 5;
     }
-    setSlots(newSlots);
+    slots = newSlots;
 }
 
 
@@ -64,4 +74,6 @@ export default {
     PlantSeedInNextAvailableSlot,
     PlantWorkerInNextAvailableSlot,
     GrowPlantAtIndex,
+    GetSlots,
+    slotBought
 }

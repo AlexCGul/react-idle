@@ -1,3 +1,5 @@
+import PlantsSlots from "./PlantsSlots";
+
 type item = {
     name: string,
     cost: number,
@@ -26,6 +28,7 @@ const items =
             "name" : "plot",
             "cost" : 2000,
             "description" : "A worker that can be assigned to tasks.",
+            "purchase" : () => PlantsSlots.BuySlot(),
         },
     ]
 }
