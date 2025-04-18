@@ -47,11 +47,14 @@ function BuyItemFromStore (newItem:number)
     if (ownedItems[queriedItem.name] == undefined) 
     {
         ownedItems[queriedItem.name] = 0;
-        return;
     }
+
     ownedItems[queriedItem.name] += 1;
 
 }
 
 
-export default BuyItemFromStore
+export default {
+    BuyItemFromStore,
+    items
+}
