@@ -14,14 +14,20 @@ function MoneyProcess ()
 function AddMoney (amount: number) 
 {
     money += amount;
-    document.dispatchEvent(moneyUpdated);
+
+    if (typeof window !== 'undefined') {
+    document?.dispatchEvent(moneyUpdated);
+    }
 }
 
 
 function RemoveMoney (amount: number) 
 {
     money -= amount;
-    document.dispatchEvent(moneyUpdated);
+
+    if (typeof window !== 'undefined') {
+    document?.dispatchEvent(moneyUpdated);
+    }
 }
 
 function AddIncome (amount: number) 

@@ -1,3 +1,5 @@
+"use client"
+
 import PlantsSlots from "./PlantsSlots";
 
 type item = {
@@ -38,7 +40,7 @@ const items =
 }
 
 
-let ownedItems = 
+let ownedItems: { [key: string]: number } = 
 {
     
 }

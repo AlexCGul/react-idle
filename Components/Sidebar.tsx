@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 
 import ItemButton from './ItemButton'
 import items from "@/DataStores/items";
@@ -8,20 +9,23 @@ import { useState } from "react";
 
 function Sidebar() {
   const [money, updateMoney] = useState(0);
-  const [income, updateIncome] = useState(0);
+  //const [income, updateIncome] = useState(0);
 
-  document.addEventListener("moneyUpdated", () => {
-    updateMoney(MoneyStore.GetMoney());
-    updateIncome(MoneyStore.GetIncome());
-  });
+  if (typeof window !== 'undefined') {
+    document?.addEventListener("moneyUpdated", () => {
+      updateMoney(MoneyStore.GetMoney());
+    });
+    
+    //updateIncome(MoneyStore.GetMoneyMade());
+  };
 
 
   
-  let buttons = []
+  const buttons = []
 
   for (let x = 0; x < items.items.items.length; x++) 
     {
-      let name = items.items.items[x].name;
+      const name = items.items.items[x].name;
 
       buttons.push(
         <ItemButton key={x} text={name} onClick={() => BuyItem(x)} />
@@ -38,14 +42,14 @@ function Sidebar() {
         })
         
       }      
-      <p className='align-bottom p-10'>{"$" + income + " /s"}</p>
+      <p className='align-bottom p-10'>{"$" + 0 + " /s"}</p>
       <p className='align-bottom p-10'>{"$" + money}</p>
 
     </div>
   );
 }
 
-function BuyItem(itemBought) 
+function BuyItem(itemBought: number) 
 {
   items.BuyItemFromStore(itemBought);
   items.items.items[itemBought].purchase();

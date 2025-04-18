@@ -1,7 +1,8 @@
 "use client";
 import { useState } from 'react';
 
-function ItemButton (props) 
+// @ignore
+function ItemButton (props: { onClick: () => void; text: string; }) 
 {
     const [clickedNum, SetClickedNum] = useState(0);
     return (

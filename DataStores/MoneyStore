@@ -6,22 +6,32 @@ let moneyUpdated = new Event("moneyUpdated")
 
 function MoneyProcess () 
 {
-    window.setInterval(() => {
-        AddMoney(makingMoney);
-    }, 10000); // 1 second
+    /*
+    if (window != undefined)
+    {   
+        window.setInterval(() => {
+            AddMoney(makingMoney);
+        }, 1000); // 1 second
+    }*/
 }
 
 function AddMoney (amount) 
 {
     money += amount;
-    document.dispatchEvent(moneyUpdated);
+
+    if (typeof window !== 'undefined') {
+        document?.dispatchEvent(moneyUpdated);
+    }
 }
 
 
 function RemoveMoney (amount) 
 {
     money -= amount;
-    document.dispatchEvent(moneyUpdated);
+
+    if (typeof window !== 'undefined') {
+        document?.dispatchEvent(moneyUpdated);
+    }
 }
 
 function AddIncome (amount) 

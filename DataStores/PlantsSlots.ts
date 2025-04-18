@@ -15,7 +15,11 @@ function BuySlot ()
 {
     slots = [...slots, { hasPlant: false, hasWorker: false, growthProgress: 0 }];
     console.log("Buying slot " + slots.length);
-    document.dispatchEvent(slotsUpdated);
+
+    if (typeof window !== 'undefined') {
+        document?.dispatchEvent(slotsUpdated);
+    }
+
 }
 
 
@@ -37,7 +41,10 @@ function PlantWorkerInNextAvailableSlot ()
     }
 
     MoneyStore.AddIncome(10);
-    document.dispatchEvent(slotsUpdated);
+
+    if (typeof window !== 'undefined') {
+        document?.dispatchEvent(slotsUpdated);
+    }
 }
 
 
@@ -48,7 +55,9 @@ function GrowPlantAtIndex (index: number)
         slots[index].growthProgress += 5;
     }
 
-    document.dispatchEvent(slotsUpdated);
+    if (typeof window !== 'undefined') {
+        document?.dispatchEvent(slotsUpdated);
+    }
 }
 
 

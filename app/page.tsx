@@ -15,13 +15,14 @@ type slot = {
 
 export default function Home() {
   
-  let uiSlots = [];
   MoneyStore.MoneyProcess();
   const [slots, SetSlots] = useState<slot[]>( plantsSlots.GetSlots);
 
-  document.addEventListener("slotsUpdated", () => {
-    SetSlots(plantsSlots.GetSlots());
-  });
+  if (typeof window !== 'undefined') {
+      document?.addEventListener("slotsUpdated", () => {
+        SetSlots(plantsSlots.GetSlots());
+      });
+    }
 
   return (
   
