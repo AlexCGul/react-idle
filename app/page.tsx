@@ -1,4 +1,5 @@
-import "../Components/Sidebar"
+import Plant from "@/Components/Plant"
+import "@/Components/Sidebar"
 import Sidebar from "../Components/Sidebar"
 
 export default function Home() {
@@ -6,7 +7,11 @@ export default function Home() {
     <div className = "flex">
       <Sidebar />
 
-      <div>Hello</div>
+      <Plant />
+      <Plant />
+
+      <Plant />
+
     </div>
   )
   
