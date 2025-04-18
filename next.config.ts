@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   basePath: isProd ? '/react-idle' : '',
-  //assetPrefix: isProd ? '/_next' : '',
   trailingSlash: true,
 
  

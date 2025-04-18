@@ -16,7 +16,6 @@ type slot = {
 
 export default function Home() {
   
-  MoneyStore.MoneyProcess();
   const [slots, SetSlots] = useState<slot[]>( plantsSlots.GetSlots);
 
   if (typeof window !== 'undefined') {
@@ -32,6 +31,7 @@ export default function Home() {
       <div className="grid grid-cols-6 gap-4">
         {
           slots.map((slot, index) => {
+            MoneyStore.MoneyProcess();
             let slotStyles:string = "";
             if (slot.hasPlant) 
             {

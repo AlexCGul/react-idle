@@ -2,26 +2,29 @@
 
 let money = 0;
 let makingMoney = 0;
+let isMoneyProcessRunning = false;
 let moneyUpdated = new Event("moneyUpdated")
 
 function MoneyProcess () 
 {
-    /*
+    
     if (window != undefined)
     {   
         window.setInterval(() => {
             AddMoney(makingMoney);
         }, 1000); // 1 second
-    }*/
+    }
 }
 
 function AddMoney (amount) 
 {
     money += amount;
 
-    if (typeof window !== 'undefined') {
+    if (!isMoneyProcessRunning || typeof window !== 'undefined') {
+        isMoneyProcessRunning = true;
         document?.dispatchEvent(moneyUpdated);
     }
+
 }
 
 

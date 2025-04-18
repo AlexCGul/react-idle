@@ -2,6 +2,7 @@
   "name": "next-idle",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pg26alexg.github.io/react-idle",
   "scripts": {
     "dev": "next dev --turbopack",
     "deploy": "gh-pages -d out --dotfiles --nojekyll",
