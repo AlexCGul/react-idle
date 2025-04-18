@@ -2,9 +2,20 @@
 
 import ItemButton from './ItemButton'
 import items from "@/DataStores/items";
+import MoneyStore from '@/DataStores/MoneyStore';
+import { useState } from "react";
+
 
 function Sidebar() {
-  
+  const [money, updateMoney] = useState(0);
+  const [income, updateIncome] = useState(0);
+
+  document.addEventListener("moneyUpdated", () => {
+    updateMoney(MoneyStore.GetMoney());
+    updateIncome(MoneyStore.GetIncome());
+  });
+
+
   
   let buttons = []
 
@@ -25,7 +36,10 @@ function Sidebar() {
         buttons.map((button) => {
           return button;
         })
+        
       }      
+      <p className='align-bottom p-10'>{"$" + income + " /s"}</p>
+      <p className='align-bottom p-10'>{"$" + money}</p>
 
     </div>
   );

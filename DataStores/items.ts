@@ -14,16 +14,20 @@ const items =
             "name" : "worker",
             "cost" : 100,
             "description" : "A worker that can be assigned to tasks.",
+            "purchase" : () => PlantsSlots.PlantWorkerInNextAvailableSlot(),
         },
+        /*
         {
             "name" : "cler",
             "cost" : 400,
             "description" : "A worker that can be assigned to tasks.",
+            "purchase" : () => PlantsSlots.BuySlot(),
         },        {
             "name" : "manager",
             "cost" : 800,
             "description" : "A worker that can be assigned to tasks.",
-        },
+            "purchase" : () => PlantsSlots.BuySlot(),
+        },*/
         {
             "name" : "plot",
             "cost" : 2000,

@@ -1,8 +1,5 @@
 "use client"
-
-import { useState } from "react";
-import items from "./items";
-
+import MoneyStore from "@/DataStores/MoneyStore";
 type slot = {
     hasPlant: boolean,
     hasWorker: boolean,
@@ -12,13 +9,13 @@ type slot = {
 //const slotCost = items.items["plot"].cost; // plot cost
 let slots:slot[] = [];
 
-const slotBought = new Event("slotBought")
+const slotsUpdated = new Event("slotsUpdated")
 
 function BuySlot () 
 {
     slots = [...slots, { hasPlant: false, hasWorker: false, growthProgress: 0 }];
     console.log("Buying slot " + slots.length);
-    document.dispatchEvent(slotBought);
+    document.dispatchEvent(slotsUpdated);
 }
 
 
@@ -28,52 +25,36 @@ function GetSlots ()
 }
 
 
-function PlantSeedInNextAvailableSlot () 
-{
-    const newSlots = [...slots];
-    for (let i = 0; i < newSlots.length; i++) 
-    {
-        if (!newSlots[i].hasPlant) 
-        {
-            newSlots[i].hasPlant = true;
-            break;
-        }
-    }
-    slots = newSlots;
-}
-
-
 function PlantWorkerInNextAvailableSlot ()
 {
-    const newSlots = [...slots];
-    for (let i = 0; i < newSlots.length; i++) 
+    for (let i = 0; i < slots.length; i++) 
     {
-        if (!newSlots[i].hasWorker) 
+        if (!slots[i].hasWorker) 
         {
-            newSlots[i].hasWorker = true;
+            slots[i].hasWorker = true;
             break;
         }
     }
-    slots = newSlots;
+
+    MoneyStore.AddIncome(10);
+    document.dispatchEvent(slotsUpdated);
 }
 
 
 function GrowPlantAtIndex (index: number) 
 {
-    const newSlots = [...slots];
-    if (newSlots[index].hasPlant) 
+    if (slots[index].hasPlant) 
     {
-        newSlots[index].growthProgress += 5;
+        slots[index].growthProgress += 5;
     }
-    slots = newSlots;
+
+    document.dispatchEvent(slotsUpdated);
 }
 
 
 export default {
     BuySlot,
-    PlantSeedInNextAvailableSlot,
     PlantWorkerInNextAvailableSlot,
     GrowPlantAtIndex,
     GetSlots,
-    slotBought
 }
