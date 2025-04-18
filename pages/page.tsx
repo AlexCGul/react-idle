@@ -2,6 +2,7 @@
 
 import Plant from "@/Components/Plant"
 import "@/Components/Sidebar"
+import "./_app"
 import Sidebar from "@/Components/Sidebar"
 import MoneyStore from "@/DataStores/MoneyStore";
 import plantsSlots from "@/DataStores/PlantsSlots";
