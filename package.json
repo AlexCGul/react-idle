@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "deploy": "gh-pages -d out",
+    "deploy": "gh-pages -d out --nojekyll",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,7 +13,8 @@
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwind": "^4.0.0"
+    "tailwind": "^4.0.0",
+    "touch-cli": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
