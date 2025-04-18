@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "deploy": "gh-pages -d out --nojekyll",
+    "deploy": "gh-pages -d out --dotfiles --nojekyll",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
