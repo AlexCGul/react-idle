@@ -58,6 +58,6 @@ export default {
     AddMoney,
     RemoveMoney,
     GetMoney,
-    GetIncome,
     AddIncome,
+    GetIncome,
 }

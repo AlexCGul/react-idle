@@ -9,14 +9,17 @@ import { useState } from "react";
 
 function Sidebar() {
   const [money, updateMoney] = useState(0);
-  //const [income, updateIncome] = useState(0);
+  const [income, updateIncome] = useState(0);
 
   if (typeof window !== 'undefined') {
     document?.addEventListener("moneyUpdated", () => {
       updateMoney(MoneyStore.GetMoney());
+
+      // @ts-expect-error GetIncome exists but ts doesn't see it
+      updateIncome(MoneyStore.GetIncome());
+      //console.log(income + " /s")
     });
     
-    //updateIncome(MoneyStore.GetMoneyMade());
   };
 
 
@@ -42,7 +45,7 @@ function Sidebar() {
         })
         
       }      
-      <p className='align-bottom p-10'>{"$" + 0 + " /s"}</p>
+      <p className='align-bottom p-10'>{"$" + income + " /s"}</p>
       <p className='align-bottom p-10'>{"$" + money}</p>
 
     </div>

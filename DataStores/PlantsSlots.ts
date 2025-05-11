@@ -9,7 +9,7 @@ type slot = {
 //const slotCost = items.items["plot"].cost; // plot cost
 let slots:slot[] = [];
 
-const slotsUpdated = new Event("slotsUpdated")
+let slotsUpdated = new Event("slotsUpdated")
 
 function BuySlot () 
 {

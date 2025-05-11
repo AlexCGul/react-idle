@@ -2,10 +2,14 @@
 
 let money = 0;
 let makingMoney = 0;
+let moneyProcessStart = false;
 let moneyUpdated = new Event("moneyUpdated")
 
 function MoneyProcess () 
 {
+    if (moneyProcessStart) return;
+    moneyProcessStart = true;
+    
     window.setInterval(() => {
         AddMoney(makingMoney);
     }, 1000); // 1 second
