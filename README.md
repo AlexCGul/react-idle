@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 
 ## You can check it out here!
-https://alexcgul.github.io/react-idle/page/
+https://alexcgul.github.io/react-idle/
 
 ## Getting Started
 
