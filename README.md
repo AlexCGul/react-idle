@@ -1,7 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 
-## [You can check it out here!](https://alexcgul.github.io/react-idle/page)
+## You can check it out here!
+- NOTE: Simply clicking the link won't work, you have to manually paste it in
+https://alexcgul.github.io/react-idle/page
 
 ## Getting Started
 
