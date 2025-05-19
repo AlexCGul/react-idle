@@ -9,6 +9,8 @@ type slot = {
 //const slotCost = items.items["plot"].cost; // plot cost
 let slots:slot[] = [];
 
+const workerIncome = 1;
+
 let slotsUpdated = new Event("slotsUpdated")
 
 function BuySlot () 
@@ -40,7 +42,7 @@ function PlantWorkerInNextAvailableSlot ()
         }
     }
 
-    MoneyStore.AddIncome(10);
+    MoneyStore.AddIncome(workerIncome);
 
     if (typeof window !== 'undefined') {
         document?.dispatchEvent(slotsUpdated);

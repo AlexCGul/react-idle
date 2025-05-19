@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://pg26alexg.github.io/react-idle",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "deploy": "gh-pages -d out --dotfiles --nojekyll",
     "build": "next build",
     "start": "next start",

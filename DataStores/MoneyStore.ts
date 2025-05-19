@@ -11,12 +11,14 @@ function MoneyProcess ()
     moneyProcessStart = true;
     
     window.setInterval(() => {
+            console.log("TIMER");
         AddMoney(makingMoney);
-    }, 1000); // 1 second
+    }, 10000); // 1 second
 }
 
 function AddMoney (amount: number) 
 {
+    console.log("Adding money: " + amount);
     money += amount;
 
     if (typeof window !== 'undefined') {

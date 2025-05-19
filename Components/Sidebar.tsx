@@ -1,15 +1,24 @@
 "use client";
 // @ts-nocheck
 
-import ItemButton from './ItemButton'
+import {ItemButton} from "./ItemButton";
 import items from "@/DataStores/items";
 import MoneyStore from '@/DataStores/MoneyStore';
-import { useState } from "react";
+import { JSX, useEffect, useReducer, useState } from "react";
+
+function SetOwned (state: any, action: any) 
+{
+  // ( the original array following by the desired mutation )
+return { ...state, [action.payload]: (state[action.payload] || 0) + 1 };
+
+}
 
 
 function Sidebar() {
+  
   const [money, updateMoney] = useState(0);
   const [income, updateIncome] = useState(0);
+  const [ownedItems, setOwnedItems] = useReducer(SetOwned, items.ownedItems);
 
   if (typeof window !== 'undefined') {
     document?.addEventListener("moneyUpdated", () => {
@@ -17,21 +26,19 @@ function Sidebar() {
 
       // @ts-expect-error GetIncome exists but ts doesn't see it
       updateIncome(MoneyStore.GetIncome());
-      //console.log(income + " /s")
     });
     
   };
 
 
-  
-  const buttons = []
-
-  for (let x = 0; x < items.items.items.length; x++) 
+  let buttons = []
+    for (let x = 0; x < items.items.items.length; x++) 
     {
       const name = items.items.items[x].name;
+      const val = ownedItems[x];
 
       buttons.push(
-        <ItemButton key={x} text={name} onClick={() => BuyItem(x)} />
+        <ItemButton key={x} text={name} value={val == undefined ? 0 : val} onClick={() => BuyItem(x)} />
       );
     }
 
@@ -50,12 +57,19 @@ function Sidebar() {
 
     </div>
   );
+
+
+  // Code to run when purchasing an item
+  function BuyItem(itemBought: number) 
+  {
+    if ( items.BuyItemFromStore(itemBought))
+    {
+      items.items.items[itemBought].purchase();
+      setOwnedItems({ type: "update", payload: itemBought });
+    }
+  }
+
 }
 
-function BuyItem(itemBought: number) 
-{
-  items.BuyItemFromStore(itemBought);
-  items.items.items[itemBought].purchase();
-}
 
  export default Sidebar;

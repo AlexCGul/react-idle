@@ -6,7 +6,7 @@ import "./_app"
 import Sidebar from "@/Components/Sidebar"
 import MoneyStore from "@/DataStores/MoneyStore";
 import plantsSlots from "@/DataStores/PlantsSlots";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type slot = {
   hasPlant: boolean,
@@ -23,7 +23,7 @@ export default function Home() {
       document?.addEventListener("slotsUpdated", () => {
 
         // Duplicate the slots array to force a re-render
-        let slots = [...plantsSlots.GetSlots()];
+        const slots = [...plantsSlots.GetSlots()];
         SetSlots(slots);
       });
     }
