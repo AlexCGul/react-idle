@@ -12,6 +12,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme 
+{ 
+    --color-primary: #2A5667;
+    --color-secondary: #086762;
+    --color-accent: #0014DB;
+    --color-text: #00DC88;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

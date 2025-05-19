@@ -4,8 +4,9 @@
 import {ItemButton} from "./ItemButton";
 import items from "@/DataStores/items";
 import MoneyStore from '@/DataStores/MoneyStore';
-import { JSX, useEffect, useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 
+// eslint-disable-next-line
 function SetOwned (state: any, action: any) 
 {
   // ( the original array following by the desired mutation )
@@ -31,7 +32,7 @@ function Sidebar() {
   };
 
 
-  let buttons = []
+  const buttons = []
     for (let x = 0; x < items.items.items.length; x++) 
     {
       const name = items.items.items[x].name;
@@ -43,8 +44,8 @@ function Sidebar() {
     }
 
   return (
-    <div className = "top-0 left-0 h-screen flex flex-col bg-amber-950" >
-      <h2>Sidebar</h2>
+    <div className = "top-0 left-0 flex flex-col bg-secondary border-6 border-emerald-800 sticky h-screen" >
+    <h2 className="text-text align-middle p-10 pb-3 pt-5">Sidebar</h2>
 
       {
         buttons.map((button) => {
@@ -52,8 +53,8 @@ function Sidebar() {
         })
         
       }      
-      <p className='align-bottom p-10'>{"$" + income + " /s"}</p>
-      <p className='align-bottom p-10'>{"$" + money}</p>
+      <p className='text-text align-middle p-10'>{"$" + income + " /s"}</p>
+      <p className='text-text align-middle p-10'>{"$" + money}</p>
 
     </div>
   );

@@ -30,13 +30,15 @@ export default function Home() {
 
   return (
   
-    <div className = "flex">
+    <div className = "flex bg-primary h-screen overflow-scroll w-full">
       <Sidebar />
-      <div className="grid grid-cols-6 gap-4">
+      <div className="flex flex-wrap bg-primary ">
         {
           slots.map((slot, index) => {
             MoneyStore.MoneyProcess();
             let slotStyles:string = "";
+            
+            // TODO implement plants
             if (slot.hasPlant) 
             {
               slotStyles += " bg-green-400";
@@ -44,7 +46,7 @@ export default function Home() {
             if (slot.hasWorker) 
             {
               console.log("Worker in slot " + index);
-              slotStyles += " border-8 border-blue-400";
+              slotStyles += " border-8 border-secondary";
             }
             return (
               <Plant key={index}  className={slotStyles}/>
