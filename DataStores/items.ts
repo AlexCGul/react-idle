@@ -19,13 +19,13 @@ const items =
     "items": [
         {
             "name" : "plot",
-            "cost" : 2000,
+            "cost" : 1000,
             "description" : "A worker that can be assigned to tasks.",
             "purchase" : () => PlantsSlots.BuySlot(),
         },
         {
             "name" : "worker",
-            "cost" : 100,
+            "cost" : 300,
             "description" : "A worker that can be assigned to tasks.",
             "purchase" : () => PlantsSlots.PlantWorkerInNextAvailableSlot(),
             "dependancies" : ["plot"]

@@ -1,6 +1,6 @@
 "use client"
 
-let money = 10000;
+let money = 1300;
 let makingMoney = 0;
 let moneyProcessStart = false;
 let moneyUpdated = new Event("moneyUpdated")
