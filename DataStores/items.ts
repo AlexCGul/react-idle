@@ -3,10 +3,13 @@
 import MoneyStore from "./MoneyStore";
 import PlantsSlots from "./PlantsSlots";
 
+// item type schema
 type item = {
     name: string,
     cost: number,
     description: string,
+    dependancies?: string[],
+    purchase: () => void,
 }
 
 // NOTE dependancy names need to match another item name exactly
@@ -33,7 +36,8 @@ const items =
             "cost" : 400,
             "description" : "A worker that can be assigned to tasks.",
             "purchase" : () => PlantsSlots.BuySlot(),
-        },        {
+        },        
+        {
             "name" : "manager",
             "cost" : 800,
             "description" : "A worker that can be assigned to tasks.",

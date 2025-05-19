@@ -16,7 +16,7 @@ return { ...state, [action.payload]: (state[action.payload] || 0) + 1 };
 
 function Sidebar() {
   
-  const [money, updateMoney] = useState(0);
+  const [money, updateMoney] = useState(MoneyStore.GetMoney());
   const [income, updateIncome] = useState(0);
   const [ownedItems, setOwnedItems] = useReducer(SetOwned, items.ownedItems);
 
