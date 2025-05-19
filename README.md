@@ -1,10 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 
-## You can check it out here!
-
-https://alexcgul.github.io/react-idle/
-
 ## Welcome to react idle!
 React idle is a short and sweet idle game made entirely in react!
 For now I'm omitting sounds and art in favour of focusing on developing the UI and functionality,
